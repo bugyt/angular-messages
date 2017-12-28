@@ -1,7 +1,9 @@
 <div class="col-xs-6 col-md-6">
   <h2>Messages</h2>
   <div *ngIf="messageService.messages.length">
-    <button class="clear" (click)="messageService.clear()">clear</button>
-    <div *ngFor='let message of messageService.messages'> {{message}} </div>
+    <button type="button" class="btn btn-danger" (click)="clearMessages()">clear</button>
+    <div *ngFor='let message of messageService.messages; let i = index' class="alert alert-success">
+      <a href="#" class="close" aria-label="close" (click)="deleteMessage(i)">&times;</a> {{message}}
+    </div>
   </div>
 </div>

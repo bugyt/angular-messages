@@ -8,6 +8,17 @@ import { MessageService } from './message.service';
 })
 export class MessagesComponent implements OnInit {
 
+    deleteMessage(index: number): void {
+        this.messageService.deleteMessage(index);
+    }
+
+
+    clearMessages() {
+        this.messageService.clearMessages();
+    }
+
+
+
     constructor(public messageService: MessageService) { }
 
     ngOnInit() {
