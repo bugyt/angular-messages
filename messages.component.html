@@ -1,9 +1,8 @@
-<div class="col-xs-6 col-md-6">
-  <h2>Messages</h2>
-  <div *ngIf="messageService.messages.length">
-    <button type="button" class="btn btn-danger" (click)="clearMessages()">clear</button>
-    <div *ngFor='let message of messageService.messages; let i = index' class="alert alert-success">
-      <a href="#" class="close" aria-label="close" (click)="deleteMessage(i)">&times;</a> {{message}}
-    </div>
+<h2>Messages</h2>
+<div *ngIf="messages.length; else elseBlock">
+  <button type="button" class="btn btn-danger" (click)="clearMessages()">Clear</button>
+  <div *ngFor='let message of messages; let i = index' class="alert alert-{{message.type}}">
+    <a href="" class="close" aria-label="close" (click)="deleteMessage(i)">&times;</a> {{message.text}}
   </div>
 </div>
+<ng-template #elseBlock>Aucun message</ng-template>
